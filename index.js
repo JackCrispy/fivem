@@ -1,15 +1,22 @@
 const axios = require('axios');
 
+// the baseline options, can be overridden
+const DEFAULT_OPTIONS = {
+	timeout: 5000
+};
+
 class Server {
-	constructor(ip) {
+	constructor(ip, options) {
 		if (!ip) throw 'Please provide an IP when using the FiveM class!';
+
 		this.ip = ip;
+		this.options = Object.assign(DEFAULT_OPTIONS, options);
 	}
 
 	getPlayers() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/players.json`)
+				.get(`http://${this.ip}/players.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let players = body.data;
 					send(players.length);
@@ -23,7 +30,7 @@ class Server {
 	getResources() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let resources = body.data.resources;
 					send(resources);
@@ -37,7 +44,7 @@ class Server {
     getOnesync() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let onesync = body.data.vars.onesync_enabled;
 					send(onesync);
@@ -51,7 +58,7 @@ class Server {
     getMaxPlayers() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let maxClients = body.data.vars.sv_maxClients;
 					send(maxClients);
@@ -65,7 +72,7 @@ class Server {
 	getLocale() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let locale = body.data.vars.locale;
 					send(locale);
@@ -79,7 +86,7 @@ class Server {
     getGamename() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let gamename = body.data.vars.gamename;
 					send(gamename);
@@ -93,7 +100,7 @@ class Server {
     getEnhancedHostSupport() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let enhancedHostSupport = body.data.vars.sv_enhancedHostSupport;
 					send(enhancedHostSupport);
@@ -107,7 +114,7 @@ class Server {
     getlicenseKeyToken() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let licenseKeyToken = body.data.vars.sv_licenseKeyToken;
 					send(licenseKeyToken);
@@ -121,7 +128,7 @@ class Server {
     getScriptHookAllowed() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let scriptHookAllowed = body.data.vars.sv_scriptHookAllowed;
 					send(scriptHookAllowed);
@@ -135,7 +142,7 @@ class Server {
 	getTags() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let tags = body.data.vars.tags;
 					send(tags);
@@ -149,7 +156,7 @@ class Server {
 	getServer() {
 		return new Promise((send, err) => {
 			axios
-				.get(`http://${this.ip}/info.json`)
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
 					let server = body.data.server;
 					send(server);
