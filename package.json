@@ -10,10 +10,10 @@
     "fivem",
     "api"
   ],
-  "repository" : {
-    "type" : "git",
-    "url"  : "git@github.com:jackcrispy/fivem.git"
- },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jackcrispy/fivem.git"
+  },
   "author": "JackCrispy",
   "license": "ISC",
   "bugs": {
