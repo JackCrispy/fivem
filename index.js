@@ -1,13 +1,12 @@
 const axios = require('axios');
 
-// the baseline options, can be overridden
 const DEFAULT_OPTIONS = {
-	timeout: 5000
+	timeout: 1000
 };
 
 class Server {
 	constructor(ip, options) {
-		if (!ip) throw 'Please provide an IP when using the FiveM class!';
+		if (!ip) throw Error('Please provide an IP.');
 
 		this.ip = ip;
 		this.options = Object.assign(DEFAULT_OPTIONS, options);
@@ -23,6 +22,27 @@ class Server {
 				})
 				.catch(function(error) {
 					err(error);
+				});
+		});
+	}
+
+	getServerStatus() {
+		return new Promise((send, err) => {
+			axios
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
+				.then(function(body) {
+					let server_status = {
+						online: true,
+					}
+					send(server_status);
+				})
+				.catch(function(error) {
+					let server_status = {
+						online: false,
+						url: error.config.url,
+						method: error.config.method
+					}
+					if (error.response == undefined) send(server_status)
 				});
 		});
 	}

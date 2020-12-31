@@ -1,14 +1,18 @@
 {
   "name": "fivem",
-  "version": "2.0.2",
-  "description": "A JavaScript API for interacting with the FiveM API.",
+  "version": "2.0.3",
+  "description": "API for getting FiveM server info & status.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "fivem",
-    "api"
+    "api",
+    "fivem server status",
+    "fivem player count",
+    "fivem api npm",
+    "fivem js"
   ],
   "repository": {
     "type": "git",
@@ -19,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/JackCrispy/fivem/issues"
   },
-  "homepage": "https://statusbot.xyz",
+  "homepage": "https://crisp.codes",
   "dependencies": {
     "axios": "^0.19.2"
   }

@@ -1,6 +1,6 @@
 # FiveM
 
-Interact with FiveM & its API with this package.
+## API for getting FiveM server info & status.
 
 ## Installation 
 **Install Package**: npm i fivem
@@ -8,10 +8,21 @@ Interact with FiveM & its API with this package.
 ## Usage
 **Examples**
 
+See if server is online (json)
+```js
+const FiveM = require("fivem") // Import the npm package.
+const srv = new FiveM.Server('IP:PORT') // Set the IP with port.
+ 
+srv.getServerStatus().then(data => console.log(data)) // Get & log the data!
+
+//if online returns json {online: true}
+// if offline returns json {online: false, url: x, method: x}
+```
+
 Get Player Count (in numbers)
 ```js
 const FiveM = require("fivem") // Import the npm package.
-const srv = new FiveM.Server('51.38.70.222:30120') // Set the IP with port.
+const srv = new FiveM.Server('IP:PORT') // Set the IP with port.
  
 srv.getPlayers().then(data => console.log(data)) // Get & log the data!
 ```
@@ -19,7 +30,7 @@ srv.getPlayers().then(data => console.log(data)) // Get & log the data!
 Get all Resources
 ```js
 const FiveM = require("fivem") // Import the npm package.
-const srv = new FiveM.Server('51.38.70.222:30120') // Set the IP with port.
+const srv = new FiveM.Server('IP:PORT') // Set the IP with port.
  
 srv.getResources().then(data => console.log(data)) // Get & log the data!
 ```
