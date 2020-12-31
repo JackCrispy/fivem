@@ -1,6 +1,6 @@
 # FiveM
 
-## API for getting FiveM server info & status.
+API for getting FiveM server info & status.
 
 ## Installation 
 **Install Package**: npm i fivem
