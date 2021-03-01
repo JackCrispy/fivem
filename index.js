@@ -25,6 +25,20 @@ class Server {
 				});
 		});
 	}
+	
+	getPlayersAll() {
+		return new Promise((send, err) => {
+			axios
+				.get(`http://${this.ip}/players.json`, { timeout: this.options.timeout })
+				.then(function(body) {
+					let players = body.data;
+					send(players);
+				})
+				.catch(function(error) {
+					err(error);
+				});
+		});
+	}	
 
 	getServerStatus() {
 		return new Promise((send, err) => {
