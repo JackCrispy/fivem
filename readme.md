@@ -36,15 +36,16 @@ srv.getResources().then(data => console.log(data)) // Get & log the data!
 ```
 
 ## **ALL FUNCTION REQUESTS**
-- getPlayers - (number)
-- getMaxPlayers - (number)
-- getResources - (string/array)
-- getTags - (string)
-- getServer - (string)
-- getOnesync - (boolean)
-- getLocale - (string)
-- getGamename - (string)
-- getEnhancedHostSupport - (boolean)
-- getlicenseKeyToken - (string)
-- getScriptHookAllowed - (boolean)
+- getPlayers - Number of players online - (number)
+- getPlayersAll - List all players in an array - (string)
+- getMaxPlayers - Max players that are able to join the server - (number)
+- getResources - Get resource names of all server resources - (string/array)
+- getTags - Get all server tags - (string)
+- getServer - Get the whole server object - (string)
+- getOnesync - See if the server has OneSync enabled - (boolean)
+- getLocale - The language of the server - (string)
+- getGamename - Get the name of the server - (string)
+- getEnhancedHostSupport - ... - (boolean)
+- getlicenseKeyToken - The license key for the server - (string)
+- getScriptHookAllowed - See if the server supports external mod menus from the client - (boolean)
 
