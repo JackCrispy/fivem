@@ -192,7 +192,7 @@ class Server {
 			axios
 				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
 				.then(function(body) {
-					let server = body.data.server;
+					let server = body.data;
 					send(server);
 				})
 				.catch(function(error) {
