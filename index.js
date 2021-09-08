@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const DEFAULT_OPTIONS = {
-	timeout: 1000
+	timeout: 10000
 };
 
 class Server {
