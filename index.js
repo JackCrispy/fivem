@@ -75,7 +75,35 @@ class Server {
 		});
 	}
 
-    getOnesync() {
+    getProjectName() {
+		return new Promise((send, err) => {
+			axios
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
+				.then(function(body) {
+					let projectName = body.data.vars.sv_projectName;
+					send(projectName);
+				})
+				.catch(function(error) {
+					err(error);
+				});
+		});
+	}
+
+	getProjectDesc() {
+		return new Promise((send, err) => {
+			axios
+				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
+				.then(function(body) {
+					let projectDesc = body.data.vars.sv_projectDesc;
+					send(projectDesc);
+				})
+				.catch(function(error) {
+					err(error);
+				});
+		});
+	}
+
+	getOnesync() {
 		return new Promise((send, err) => {
 			axios
 				.get(`http://${this.ip}/info.json`, { timeout: this.options.timeout })
