@@ -44,8 +44,9 @@ srv.getResources().then(data => console.log(data)) // Get & log the data!
 - getServer - Get the whole server object - (string)
 - getOnesync - See if the server has OneSync enabled - (boolean)
 - getLocale - The language of the server - (string)
-- getGamename - Get the name of the server - (string)
+- getGamename - Get the name of the game - (string)
 - getEnhancedHostSupport - ... - (boolean)
 - getlicenseKeyToken - The license key for the server - (string)
 - getScriptHookAllowed - See if the server supports external mod menus from the client - (boolean)
-
+- getProjectName - Get the project name of the server - (string)
+- getProjectDesc - Get the project desc of the server - (string)
